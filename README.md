@@ -1,4 +1,4 @@
-OK luôn bro 😎 — đây là bản **hoàn chỉnh**, bạn chỉ cần **copy toàn bộ** rồi **paste vào file `README.md`** trên GitHub là xong, không cần chỉnh gì thêm nhé.
+
 
 ---
 
