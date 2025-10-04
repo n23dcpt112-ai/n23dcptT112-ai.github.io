@@ -1,0 +1,71 @@
+<STYLE>c-decoration:none; }
+    nav a:hover { text-decoration:underline; }
+
+    /* Slider */
+    #slider { width:80%; margin:20px auto; overflow:hidden; border-radius:10px; box-shadow:0 3px 6px rgba(0,0,0,0.2);}
+    #slider img { width:100%; display:none; }
+
+    /* Nút */
+    .btn { background:#ff9966; color:white; padding:10px 20px; border:none; border-radius:5px; cursor:pointer; }
+    .btn:hover { background:#ff7744; }
+
+    /* Popup */
+    #popup { display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6);}
+    .popup-content { background:white; width:50%; margin:10% auto; padding:20px; border-radius:10px; text-align:center;}
+    .close { float:right; cursor:pointer; color:red; font-weight:bold; }</STYLE>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+</head>
+<body>
+
+<header>🐾 Thế Giới Pet Cưng 🐾</header>
+<nav>
+  <a href="#">Trang chủ</a>
+  <a href="#">Thú cưng</a>
+  <a href="#">Dịch vụ</a>
+  <a href="#">Liên hệ</a>
+</nav>
+
+<!-- Slider -->
+<div id="slider">
+  <img src="https://place-puppy.com/800x400" alt="Chó dễ thương" style="display:block;">
+  <img src="https://placekitten.com/800/400" alt="Mèo dễ thương">
+  <img src="https://placebear.com/800/400" alt="Thú cưng khác">
+</div>
+
+<div style="text-align:center; margin:20px;">
+  <button class="btn" id="showPopup">Xem thêm thú cưng</button>
+</div>
+
+<!-- Popup -->
+<div id="popup">
+  <div class="popup-content">
+    <span class="close">&times;</span>
+    <h2>Giới thiệu Pet Cưng</h2>
+    <p>Chúng tôi mang đến những người bạn nhỏ dễ thương, đáng yêu và khỏe mạnh 🐶🐱.</p>
+  </div>
+</div>
+
+<script>
+$(document).ready(function(){
+  // Slider tự động
+  let index = 0;
+  setInterval(function(){
+    let imgs = $("#slider img");
+    imgs.eq(index).fadeOut(600);
+    index = (index + 1) % imgs.length;
+    imgs.eq(index).fadeIn(600);
+  }, 3000);
+
+  // Popup
+  $("#showPopup").click(function(){
+    $("#popup").fadeIn();
+  });
+  $(".close, #popup").click(function(e){
+    if(e.target !== this) return; // click ra ngoài mới đóng
+    $("#popup").fadeOut();
+  });
+});
+</script>
+
+</body>
+</html>
